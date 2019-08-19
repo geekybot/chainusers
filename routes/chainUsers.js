@@ -31,6 +31,7 @@ router.post("/register", async (req, res) => {
 
 // Login for username(emailId) password
 router.post('/login', (req, res) => {
+  console.log(req.body);
   JobSeeker.findOne({ _id: req.body.id }, function (err, user) {
     if (err) {
       res.json({ message: "User not found" });
@@ -57,7 +58,7 @@ router.post('/login', (req, res) => {
 });
 
 // get a user by id
-router.get('/:id', (req, res) => {
+router.get('/user/:id', (req, res) => {
   JobSeeker.findOne({ username: req.params.emailId }, function (err, user) {
     if (err) {
       res.json({ message: "User not found" });
