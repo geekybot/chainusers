@@ -20,7 +20,7 @@ db.createCollection("books")
 
 
 #Register
-
+```
 var settings = {
   "async": true,
   "crossDomain": true,
@@ -38,9 +38,9 @@ var settings = {
 $.ajax(settings).done(function (response) {
   console.log(response);
 });
-
+```
 #login
-
+```
 var settings = {
   "async": true,
   "crossDomain": true,
@@ -58,8 +58,9 @@ var settings = {
 $.ajax(settings).done(function (response) {
   console.log(response);
 });
-
+```
 #get Users
+```
 var settings = {
   "async": true,
   "crossDomain": true,
@@ -74,3 +75,4 @@ var settings = {
 $.ajax(settings).done(function (response) {
   console.log(response);
 });
+```
