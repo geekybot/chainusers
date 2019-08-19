@@ -19,7 +19,7 @@ db.createCollection("books")
 ```
 
 
-###Register
+### Register
 ```
 var settings = {
   "async": true,
@@ -39,7 +39,7 @@ $.ajax(settings).done(function (response) {
   console.log(response);
 });
 ```
-###Login
+### Login
 ```
 var settings = {
   "async": true,
@@ -59,7 +59,7 @@ $.ajax(settings).done(function (response) {
   console.log(response);
 });
 ```
-###Get Users
+### Get Users
 ```
 var settings = {
   "async": true,
