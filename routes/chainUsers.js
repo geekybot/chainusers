@@ -24,7 +24,7 @@ router.post("/register", async (req, res) => {
       res.send({ message: "error while registration" });
       return;
     } else {
-      res.status(201).send({ message: "User created", emailId: req.body.emailId });
+      res.status(201).send({ message: "User created", userId: user._id });
     }
   });
 });
