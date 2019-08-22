@@ -76,9 +76,9 @@ router.get('/dashboarddata', (req, res) => {
 	let data = {}
 	JobSeeker.find().sort({ datesaved: 1 }).limit(50).then((users) => {
 		console.log("first users: ", users);
-		data.users = users;
-
-
+		let b= [];
+		users.map(aa => { b.push({ address: aa.pubKey, timestamp: aa.datesaved, userid: aa._id }) })
+		data.users = b;
 		JobSeeker.count().then((count) => {
 			console.log("second: ", count);
 			data.count = count;
