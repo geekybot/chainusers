@@ -56,7 +56,7 @@ router.post('/login', (req, res) => {
 });
 
 // get a user by id
-router.get('/user/:usernmae', (req, res) => {
+router.get('/user/:username', (req, res) => {
 	JobSeeker.findOne({ username: req.params.username }, function (err, user) {
 		if (err) {
 			res.json({ message: "User not found" });
@@ -74,7 +74,7 @@ router.get('/dashboarddata', (req, res) => {
 		let b = [];
 		users.map(aa => { b.push({ address: aa.pubKey, timestamp: aa.datesaved, userid: aa._id }) })
 		data.users = b;
-		JobSeeker.count().then((count) => {
+		JobSeeker.countDocuments().then((count) => {
 			data.count = count;
 			JobSeeker.find({
 				"datesaved":
