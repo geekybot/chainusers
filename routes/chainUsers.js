@@ -85,7 +85,7 @@ router.get('/dashboarddata', (req, res) => {
 			JobSeeker.find({
 				"datesaved":
 				{
-					$gte: (new Date()).getTime() + 86400000,
+					$gte: (new Date()).getTime() - 86400000,
 					$lt: (new Date()).getTime()
 				}
 			}).then((list) => {
@@ -95,8 +95,7 @@ router.get('/dashboarddata', (req, res) => {
 		});
 		res.send(data);
 		return;
-	});
-	res.send("You are wrong");
+	}).catch(err=> res.send("You are wrong"));
 
 })
 
