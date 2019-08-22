@@ -4,7 +4,7 @@ const mongoose = require("mongoose"),
 	SALT_WORK_FACTOR = 10;
 
 let chainSchema = new Schema({
-	username: { type: String, required: true },
+	username: { type: String, required: true, unique: true },
 	password: { type: String, required: true },
 	name: { type: String, required: true },
 	pubKey: { type: String, required: true },

@@ -75,8 +75,12 @@ router.get('/user/:usernmae', (req, res) => {
 router.get('/dashboarddata', (req, res) => {
 	let data = {}
 	JobSeeker.find().sort({ datesaved: 1 }).limit(50).then((users) => {
+		console.log("first users: ", users);
 		data.users = users;
+		
+		
 		JobSeeker.count().then((count) => {
+			console.log("second: ", count);
 			data.count = count;
 			JobSeeker.find({
 				"datesaved":
@@ -85,6 +89,7 @@ router.get('/dashboarddata', (req, res) => {
 					$lt: (new Date()).getTime()
 				}
 			}).then((list) => {
+				console.log("third list: ", list.length);
 				data.lastDay = list.length
 			})
 		});
