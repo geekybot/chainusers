@@ -9,16 +9,13 @@ router.post("/register", async (req, res) => {
 	newUser.name = req.body.name;
 	newUser.password = req.body.password;
 	var a = await utils.generate();
-	console.log(a);
 	newUser.mnemoninc = a.mnemoninc;
 	newUser.pubKey = a.publicKey;
 	newUser.privKey = a.masterPrivateKey;
 	newUser.datesaved = (new Date()).getTime();
 	// res.send({"messagge": a});
-	console.log(newUser);
 	newUser.save(function (err, user) {
 		if (err) {
-			console.log(err);
 			if (err.toString().slice(12, 18) == "E11000") {
 				res.send({ message: "User already registered", username: req.body.username });
 				return;
@@ -33,7 +30,6 @@ router.post("/register", async (req, res) => {
 
 // Login for username(emailId) password
 router.post('/login', (req, res) => {
-	console.log(req.body);
 	JobSeeker.findOne({ username: req.body.username }, function (err, user) {
 		if (err) {
 			res.json({ message: "User not found" });
@@ -75,12 +71,10 @@ router.get('/user/:usernmae', (req, res) => {
 router.get('/dashboarddata', (req, res) => {
 	let data = {}
 	JobSeeker.find().sort({ datesaved: 1 }).limit(50).then((users) => {
-		console.log("first users: ", users);
-		let b= [];
+		let b = [];
 		users.map(aa => { b.push({ address: aa.pubKey, timestamp: aa.datesaved, userid: aa._id }) })
 		data.users = b;
 		JobSeeker.count().then((count) => {
-			console.log("second: ", count);
 			data.count = count;
 			JobSeeker.find({
 				"datesaved":
@@ -89,7 +83,6 @@ router.get('/dashboarddata', (req, res) => {
 					$lt: (new Date()).getTime()
 				}
 			}).then((list) => {
-				console.log("third list: ", list.length);
 				data.lastDay = list.length
 				res.send(data);
 			})
