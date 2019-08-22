@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "d43e0958-d37d-409f-bfa3-05a7699d9775",
+		"name": "chains",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "chainusers/dashboarddata",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"iamluffy\",\n    \"name\": \"Utpal Pal\",\n    \"password\": \"PeterThiel\"\n}"
+				},
+				"url": {
+					"raw": "52.66.159.189:8081/chainusers/dashboarddata",
+					"host": [
+						"52",
+						"66",
+						"159",
+						"189"
+					],
+					"port": "8081",
+					"path": [
+						"chainusers",
+						"dashboarddata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "chainusers/register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"iamluffy\",\n    \"name\": \"Utpal Pal\",\n    \"password\": \"PeterThiel\"\n}"
+				},
+				"url": {
+					"raw": "52.66.159.189:8081/chainusers/register",
+					"host": [
+						"52",
+						"66",
+						"159",
+						"189"
+					],
+					"port": "8081",
+					"path": [
+						"chainusers",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/chainusers/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"iamluffy\",\n    \"password\": \"PeterThiel\"\n}"
+				},
+				"url": {
+					"raw": "52.66.159.189:8081/chainusers/login",
+					"host": [
+						"52",
+						"66",
+						"159",
+						"189"
+					],
+					"port": "8081",
+					"path": [
+						"chainusers",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "chainusers/user/iamluffy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"iamluffy\",\n    \"name\": \"Utpal Pal\",\n    \"password\": \"PeterThiel\"\n}"
+				},
+				"url": {
+					"raw": "52.66.159.189:8081/chainusers/user/iamluffy",
+					"host": [
+						"52",
+						"66",
+						"159",
+						"189"
+					],
+					"port": "8081",
+					"path": [
+						"chainusers",
+						"user",
+						"iamluffy"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
