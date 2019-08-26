@@ -2,6 +2,8 @@ var express = require("express");
 var JobSeeker = require("../models/chainUser");
 var router = express.Router();
 var utils = require('./utils');
+var nodemailer = require('nodemailer');
+
 // Normal registration takes three parameters: name, emailId, password
 router.post("/register", async (req, res) => {
 	var newUser = new JobSeeker();
@@ -93,5 +95,53 @@ router.get('/dashboarddata', (req, res) => {
 
 })
 
+
+var transporter = nodemailer.createTransport({
+	service: 'gmail',
+	auth: {
+		user: 'test@gmail.com',
+		pass: 'testpassword'
+	}
+});
+
+router.post('/sendmail', (req, res) => {
+	
+	let data = req.body;
+	let emailBody = "User '" + data.username + + "', sent an application recommendation as follows: ";
+	if (data.social) {
+		emailBody = emailBody + " Social, ";
+	}
+	if (data.email) {
+		emailBody = emailBody + " Email, ";
+	}
+	if (data.finance) {
+		emailBody = emailBody + " Finance, ";
+	}
+	if (data.gdocs) {
+		emailBody = emailBody + " Gdocs,";
+	}
+	if (data.git) {
+		emailBody = emailBody + " Git,";
+	}
+	if (data.others) {
+		emailBody = emailBody + data.others;
+	}
+	var mailOptions = {
+		from: 'test@gmail.com',
+		to: 'test@gmail.com',
+		subject: 'New Feature Request',
+		text: emailBody
+	};
+	transporter.sendMail(mailOptions, function (error, info) {
+		if (error) {
+			console.log(error);
+			res.send("Email Not Sent");
+		} else {
+			console.log('Email sent: ' + info.response);
+			res.send("Email Sent");
+		}
+	});
+
+})
 
 module.exports = router;
