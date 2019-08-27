@@ -99,8 +99,8 @@ router.get('/dashboarddata', (req, res) => {
 var transporter = nodemailer.createTransport({
 	service: 'gmail',
 	auth: {
-		user: 'test@gmail.com',
-		pass: 'testpassword'
+		user: 'teamonchain@gmail.com',
+		pass: 'Newteam508*'
 	}
 });
 
@@ -127,8 +127,8 @@ router.post('/sendmail', (req, res) => {
 		emailBody = emailBody + data.others;
 	}
 	var mailOptions = {
-		from: 'test@gmail.com',
-		to: 'test@gmail.com',
+		from: 'teamonchain@gmail.com',
+		to: 'teamonchain@gmail.com',
 		subject: 'New Feature Request',
 		text: emailBody
 	};
