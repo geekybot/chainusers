@@ -126,6 +126,12 @@ router.post('/sendmail', (req, res) => {
 	if (data.others) {
 		emailBody = emailBody + data.others;
 	}
+	if (data.social) {
+		emailBody = emailBody + " Social";
+	}
+	if (data.mailId) {
+		emailBody = emailBody + ", Mail ID :" + data.mailId ;
+	}
 	var mailOptions = {
 		from: 'teamonchain@gmail.com',
 		to: 'teamonchain@gmail.com',
